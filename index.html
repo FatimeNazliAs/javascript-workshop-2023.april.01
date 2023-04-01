@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Counter</title>
+    <script type="text/javascript">
+        // JS Engine -> Virtual Machine -> Single Execution Thread
+        // Event Queue -- Event --> Event:Callback Function
+        function fun(x, y, z) { // synchronous/blocking function
+            return x * y + z ** 3;
+        }
+
+        const result = fun(2, 7, 15);
+        // JS Features:
+        // 1. Functional Programming Language
+        //     i) HoF (Higher-Order Function) -> filter/map/reduce/sort
+        //    ii) Pure Function -> has no side-effect : lambda expression
+        // 2. Asynchronous/Non-blocking Function
+        // 3. Event-Driven Programming
+        // 4. Object-Based Programming
+        // 5. Class-Oriented Programming -> Object-Oriented Programming
+        function app(){
+            let counter = 0; // model
+            let spanElement = document.querySelector("#counter");
+            setInterval(function () { // i) HoF ii) Asynchronous/Non-blocking Function
+                // update model
+                counter++;
+                // update view -> DOM API
+                spanElement.innerHTML = counter.toString();
+            }, 1_000) // Timeout Event -> function () { ... }
+        }
+        window.onload = app // DOM -> ONLOAD EVENT -> register app function
+    </script>
+</head>
+<body>
+<div>
+    <h1>Counter: <span id="counter">0</span></h1>
+</div>
+</body>
+</html>

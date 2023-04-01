@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise #1</title>
+    <script type="text/javascript">
+        const numbers = [4, 8, 15, 16, 23, 42];
+        console.log(numbers.length);
+        console.log(`numbers[0]: ${numbers[0]}`);
+        console.log(`numbers[5]: ${numbers[5]}`);
+        // external loop #1
+        for (let i=0;i<numbers.length;++i){
+            console.log(`numbers[${i}]: ${numbers[i]}`);
+        }
+        // external loop #2
+        for (let i  in numbers){
+            console.log(`numbers[${i}]: ${numbers[i]}`);
+        }
+        // external loop #3
+        for (let number of numbers){
+            console.log(`${number}`);
+        }
+        // internal loop #4
+        let printArrayElement = function(number, index){
+            console.log(`numbers[${index}]: ${number}`);
+        };
+        numbers.forEach(printArrayElement)
+        // array functions
+        console.log(numbers.indexOf(15)) // 2
+        console.log(numbers.indexOf(108)) // -1
+        console.log(numbers.includes(15)) // true
+        console.log(numbers.includes(108)) // false
+        console.log(numbers);
+        numbers.sort(function(x,y){ return x<y ? +1 : -1; }) // HoF
+        numbers.sort(function(x,y){ return y-x; }) // HoF
+        numbers.sort((x,y) => { return y-x; }) // Lambda Expression/Arrow Function
+        numbers.sort((x,y) => y-x) // Lambda Expression/Arrow Function
+        console.log(numbers);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

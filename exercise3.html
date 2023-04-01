@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise #3</title>
+    <script type="text/javascript">
+        function fun(x, y, z) { // synchronous/blocking function
+            if (Math.random()<0.5){
+                throw "Something is wrong!";
+            }
+            return x * y + z ** 3;
+        }
+
+        // let result = fun(1, 2, 3);
+        // console.log(`result is ${result}.`);
+
+        function gun(x, y, z) { // synchronous/blocking function
+            return new Promise((resolve, reject) => {
+                if (Math.random()<0.5){
+                    reject("Something is wrong!");
+                }
+                setTimeout(() => {
+                    resolve(x * y + z ** 3);
+                }, 5_000)
+            });
+        }
+        gun(1,2,3).then( result => console.log(`result is ${result}.`))
+                  .catch( e => console.error(e) );
+        console.log("Application is running");
+    </script>
+</head>
+<body>
+
+</body>
+</html>

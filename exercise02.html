@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise #2</title>
+    <script type="text/javascript">
+        const numbers = [4, 8, 15, 16, 23, 42];
+        // even -> cube -> sum
+        let sum = 0;
+        for (let number of numbers){
+            if (number%2 === 0){
+                const cubed = number ** 3;
+                sum += cubed;
+            }
+        }
+        console.log(`sum is ${sum}.`);
+        const even_numbers = n => n%2 === 0;
+        const to_cube = u => u*u*u;
+        const to_sum = (s,n) => s+n;
+        // functional programming
+        sum = numbers.filter(even_numbers)
+                     .map( to_cube )
+                     .reduce(to_sum, 0);
+        console.log(`sum is ${sum}.`);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
