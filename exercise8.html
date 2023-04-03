@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OOP in JS</title>
+    <script type="text/javascript">
+        class Employee {
+            #identity;
+            #fullname;
+            #salary;
+            #iban;
+
+            constructor(identity, fullname, salary, iban) {
+                const self = this;
+                this.#identity = identity;
+                this.#fullname = fullname;
+                this.#salary = salary;
+                this.#iban = iban;
+                // this.sayHello = this.sayHello.bind(this);
+            }
+
+            get salary (){ // property
+                console.log(`get salary(){...} is invoked!`)
+                return this.#salary;
+            }
+            set salary (newSalary){ // property
+                console.log(`set salary(${newSalary}){...} is invoked!`)
+                if (newSalary < 8_500)
+                    throw "Salary should be larger than min wage."
+                this.#salary = newSalary;
+            }
+            sayHello = () => {
+                console.log(self);
+                console.log(`Hello, ${self.fullname}!`);
+            }
+
+        }
+        const jack = new Employee("1", "jack bauer", 100_000, "tr1");
+        const kate = new Employee("2", "kate austen", 200_000, "tr2");
+        jack.salary = 25_000; // set method is invoked!
+        console.log(jack.salary);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
