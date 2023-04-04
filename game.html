@@ -18,7 +18,9 @@
             <div class="card-body">
                 <div class="mb-3">
                     <label class="form-label" for="tries">Tries:</label>
-                    <span class="badge bg-success" id="tries" data-bind="text: tries"></span>
+                    <span class="badge bg-success"
+                          id="tries"
+                          data-bind="text: tries"></span>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="guess">Guess:</label>
@@ -26,6 +28,26 @@
                            class="form-control"
                            id="guess"
                            data-bind="value: guess"></input>
+                    <button class="btn btn-success"
+                            data-bind="click: play">Play</button>
+                </div>
+                <div class="mb-3">
+                    <table class="table table-bordered table-hover table-striped table-responsive">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Guess</th>
+                                <th>Message</th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach: moves">
+                             <tr>
+                                 <td data-bind="text: $index() + 1"></td>
+                                 <td data-bind="text: guess"></td>
+                                 <td data-bind="text: message"></td>
+                             </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
